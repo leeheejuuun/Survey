@@ -96,6 +96,7 @@ export default function Main() {
       <Stack spacing={1} direction="column" sx={{ marginTop: '10px' }}>
         {surveys.map(({ title, active }, idx) => (
           <Button
+            sx={{ borderRadius: '1px' }}
             variant={active ? 'contained' : 'outlined'}
             onClick={() => handleServeySelect(title, idx, active)}
           >
@@ -127,7 +128,10 @@ export default function Main() {
           {startData.questions.length > 0 && (
             <span>
               설문은 총
-              <span className="questionsNum">{startData.questions.length}</span>
+              <span className="questionsNum">
+                {' '}
+                {startData.questions.length}
+              </span>
               문항 입니다.
             </span>
           )}

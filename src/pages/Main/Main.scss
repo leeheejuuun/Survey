@@ -9,11 +9,11 @@
   .title {
     margin-top: 30px;
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 800;
   }
   .subTitle {
-    font-weight: 600;
-    margin-top: 30px;
+    font-weight: 700;
+    margin-top: 20px;
   }
   .nameAndTitleBox {
     display: flex;
@@ -21,9 +21,10 @@
     align-items: center;
     .nameBox {
       margin-top: 30px;
+      font-weight: 500;
       .surveyNameText {
         font-size: 20px;
-        font-weight: 600;
+        font-weight: 800;
       }
       .noneName {
         font-size: 18px;
@@ -36,7 +37,7 @@
       margin-top: 20px;
       margin-bottom: 20px;
       font-size: 14px;
-      font-weight: 400;
+      font-weight: 500;
       .surveyTitleText {
         font-size: 17px;
         font-weight: 600;

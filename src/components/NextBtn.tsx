@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import './NextBtn.scss';
 
 type nextProps = {
   handlePrintData?: () => void;
@@ -19,6 +20,7 @@ export default function NextBtn({
   return (
     <div className="nextBtnWrap">
       <button
+        className="nextBtn"
         onClick={pathname === '/survey' ? handleNextBtn : handlePrintData}
         disabled={answersActiveFilter && !answersActiveFilter[0]}
       >

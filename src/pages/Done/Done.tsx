@@ -1,9 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { DataContext } from '../../context/CreateContext';
 import NextBtn from '../../components/NextBtn';
+import './Done.scss';
+import Modal from '../../components/Modal';
+import HomeIcon from '@mui/icons-material/Home';
 
 export default function Done() {
+  const [open, setOpen] = useState(false);
   const { printData, setPrintData } = useContext(DataContext);
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -12,14 +16,34 @@ export default function Done() {
   const handlePrintData = () => {
     const map = printData.map((a) => Object.values(a));
     const entries = Object.fromEntries(map);
-    console.log('printData', printData);
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleGoHome = () => {
+    alert('메인으로 돌아가시겠습니까?');
+    navigate('/');
+    setPrintData([]);
   };
 
   return (
-    <div>
-      설문이 종료되었습니다.
-      <div>
-        <button onClick={handlePrintData}>설문결과 보러가기</button>
+    <div className="doneBox">
+      <span className="doneText">설문이 종료되었습니다.</span>
+      <div className="doneContents">
+        <Modal
+          state={state}
+          open={open}
+          handleClickOpen={handleClickOpen}
+          handleClose={handleClose}
+        />
+      </div>
+      <div className="homeIconBox">
+        <HomeIcon fontSize="large" onClick={handleGoHome} />
       </div>
     </div>
   );

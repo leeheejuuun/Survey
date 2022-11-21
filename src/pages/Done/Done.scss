@@ -1,0 +1,22 @@
+.doneBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .doneText {
+    margin-top: 150px;
+    font-size: 23px;
+    font-weight: 600;
+  }
+  .doneContents {
+    margin-top: 50px;
+    .doneResultBtn {
+      background-color: white;
+      border: 1px solid black;
+      padding: 10px;
+    }
+  }
+  .homeIconBox {
+    margin-top: 100px;
+    cursor: pointer;
+  }
+}

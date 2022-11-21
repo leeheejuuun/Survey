@@ -111,7 +111,7 @@ export default function Survey() {
     if (number === questions.length - 1) {
       alert('설문이 종료 되었습니다.');
       navigate('/done', {
-        state: state.title,
+        state: state,
       });
     }
     setPrintData([
