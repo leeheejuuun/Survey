@@ -81,7 +81,7 @@ export default function CustomizedDialogs({
         >
           <span className="pickSurvey">
             <span className="name">{state.name}</span>님께서 선택한 설문은{' '}
-            <span className="survetTitle">{state.title}</span> 입니다.
+            <span className="survetTitle">{state.title}</span>입니다.
           </span>
         </BootstrapDialogTitle>
         <DialogContent dividers>
