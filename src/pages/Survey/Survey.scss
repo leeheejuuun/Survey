@@ -8,6 +8,15 @@
     font-size: 20px;
     font-weight: 900;
   }
+  .progressBarBox {
+    display: flex;
+    align-items: center;
+    margin: 30px 0 20px 0;
+    .ProgressBarCount {
+      margin-left: 30px;
+      font-weight: 700;
+    }
+  }
   .surveyNumber {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -17,7 +26,7 @@
   .surveyName {
     margin-bottom: 15px;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 600;
   }
   .btnWrap {
     width: 300px;

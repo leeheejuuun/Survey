@@ -80,8 +80,8 @@ export default function CustomizedDialogs({
           onClose={handleClose}
         >
           <span className="pickSurvey">
-            <span className="name">{state.name}</span>님께서 선택한 설문은{' '}
-            <span className="survetTitle">{state.title}</span>입니다.
+            <span className="name">{state.name}</span>님{' '}
+            <span className="survetTitle">{state.title} </span> 결과입니다.
           </span>
         </BootstrapDialogTitle>
         <DialogContent dividers>

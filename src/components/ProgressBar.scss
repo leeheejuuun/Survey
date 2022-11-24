@@ -1,0 +1,26 @@
+.progressBar {
+  display: flex;
+  width: 200px;
+  .progressSquareOff {
+    width: 15px;
+    height: 20px;
+    background-color: #f3f3f3;
+  }
+  .progressSquareOn {
+    width: 15px;
+    height: 20px;
+    background-color: #2389ff;
+  }
+  .progressLineOn {
+    display: inline-block;
+    width: 100%;
+    border: none;
+    border-top: 5px solid #2389ff;
+  }
+  .progressLineOff {
+    display: inline-block;
+    width: 100%;
+    border: none;
+    border-top: 5px solid #f3f3f3;
+  }
+}

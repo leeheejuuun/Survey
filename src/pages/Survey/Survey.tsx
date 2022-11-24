@@ -6,11 +6,13 @@ import Stack from '@mui/material/Stack';
 import NextBtn from '../../components/NextBtn';
 import PrevBtn from '../../components/PrevBtn';
 import '../Survey/Survey.scss';
+import ProgressBar from '../../components/ProgressBar';
 import { DataContext } from '../../context/CreateContext';
 
 export default function Survey() {
   const { printData, setPrintData } = useContext(DataContext);
   const [finalDataAnswer, setFinalDataAnswer] = useState<string[]>([]);
+  const [isProgressBar, setIsProgressBar] = useState<boolean[]>([]);
   const [answers, setAnswers] = useState<{ title: string; active: boolean }[]>([
     {
       title: '',
@@ -30,9 +32,6 @@ export default function Survey() {
       mode: 0,
       answers: [],
     },
-  ]);
-  const [surveysData, setSurveysData] = useState<{ answer: string }[]>([
-    { answer: '' },
   ]);
 
   const navigate = useNavigate();
@@ -68,6 +67,16 @@ export default function Survey() {
       console.log('error', err);
     }
   }, [questions, number]);
+
+  useEffect(() => {
+    const newArr = Array(3).fill(false);
+    if (questions.length === 1) {
+      newArr.fill(true);
+      setIsProgressBar(newArr);
+    } else {
+      setIsProgressBar(newArr);
+    }
+  }, [questions]);
 
   const answersActiveFilter = answers.filter((x) => x.active === true);
 
@@ -114,6 +123,20 @@ export default function Survey() {
         state: state,
       });
     }
+
+    const newArr = [...isProgressBar];
+    if ((number + 2) / questions.length >= 0.76) {
+      newArr.fill(true);
+      setIsProgressBar(newArr);
+    } else if ((number + 2) / questions.length >= 0.51) {
+      newArr[0] = true;
+      newArr[1] = true;
+      setIsProgressBar(newArr);
+    } else if ((number + 2) / questions.length >= 0.26) {
+      newArr[0] = true;
+      setIsProgressBar(newArr);
+    }
+
     setPrintData([
       ...printData,
       { question: questions[number].title, answer: finalDataAnswer },
@@ -123,9 +146,23 @@ export default function Survey() {
 
   const handlePrevBtn = () => {
     setNumber((prev) => prev - 1);
+    setPrintData(printData.slice(0, -1));
+    const newArr = [...isProgressBar];
+    if (number / questions.length <= 0.25) {
+      newArr[0] = false;
+      setIsProgressBar(newArr);
+    } else if (number / questions.length <= 0.5) {
+      newArr[1] = false;
+      if (questions.length === 3) newArr[0] = false;
+      setIsProgressBar(newArr);
+    } else if (number / questions.length <= 0.75) {
+      newArr[2] = false;
+      setIsProgressBar(newArr);
+    }
     if (!number) {
-      alert('선택한 데이터가 전부 사라지게 됩니다. 뒤로 가시겠습니까?.');
+      alert('설문을 다시 선택하시겠습니까?.');
       navigate('/');
+      setPrintData([]);
     }
   };
 
@@ -133,9 +170,14 @@ export default function Survey() {
     <div>
       <div className="surveyWrap">
         <span className="surveyTitle">{state.title}</span>
-        <div className="surveyNumber">
-          {number + 1}/{questions.length}
+        <div className="progressBarBox">
+          <ProgressBar isProgressBar={isProgressBar} />
+          <span className="ProgressBarCount">
+            {number + 1}/{questions.length}
+          </span>
+          {/* <div className="surveyNumber"></div> */}
         </div>
+
         <div className="surveyName">{questions[number].title}</div>
         <Stack
           spacing={1}
