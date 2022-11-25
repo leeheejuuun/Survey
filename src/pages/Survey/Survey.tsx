@@ -141,12 +141,14 @@ export default function Survey() {
       ...printData,
       { question: questions[number].title, answer: finalDataAnswer },
     ]);
+
     setFinalDataAnswer([]);
   };
 
   const handlePrevBtn = () => {
     setNumber((prev) => prev - 1);
     setPrintData(printData.slice(0, -1));
+
     const newArr = [...isProgressBar];
     if (number / questions.length <= 0.25) {
       newArr[0] = false;
@@ -159,6 +161,7 @@ export default function Survey() {
       newArr[2] = false;
       setIsProgressBar(newArr);
     }
+
     if (!number) {
       alert('설문을 다시 선택하시겠습니까?.');
       navigate('/');
@@ -175,7 +178,6 @@ export default function Survey() {
           <span className="ProgressBarCount">
             {number + 1}/{questions.length}
           </span>
-          {/* <div className="surveyNumber"></div> */}
         </div>
 
         <div className="surveyName">{questions[number].title}</div>
