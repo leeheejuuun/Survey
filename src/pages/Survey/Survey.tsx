@@ -96,6 +96,8 @@ export default function Survey() {
     console.log(finalDataAnswer, 'final');
   }, [finalDataAnswer]);
 
+  if (!state) navigate('/');
+
   const handleManyAnswersSelect = (
     title: string,
     i: number,
@@ -170,54 +172,58 @@ export default function Survey() {
   };
 
   return (
-    <div>
-      <div className="surveyWrap">
-        <span className="surveyTitle">{state.title}</span>
-        <div className="progressBarBox">
-          <ProgressBar isProgressBar={isProgressBar} />
-          <span className="ProgressBarCount">
-            {number + 1}/{questions.length}
-          </span>
-        </div>
+    <>
+      {state && (
+        <div>
+          <div className="surveyWrap">
+            <span className="surveyTitle">{state.title}</span>
+            <div className="progressBarBox">
+              <ProgressBar isProgressBar={isProgressBar} />
+              <span className="ProgressBarCount">
+                {number + 1}/{questions.length}
+              </span>
+            </div>
 
-        <div className="surveyName">{questions[number].title}</div>
-        <Stack
-          spacing={1}
-          direction="column"
-          sx={{ display: 'flex', alignItems: 'flex-start' }}
-        >
-          {answers.map(({ title, active }, i) => (
-            <Button
-              sx={{
-                fontSize: '15px',
-                fontWeight: '600',
-                borderRadius: '1px',
-                width: '300px',
-              }}
-              variant={active ? 'contained' : 'outlined'}
-              key={title}
-              onClick={
-                questions[number].mode === 0
-                  ? () => handleAnswersSelect(title, i, active)
-                  : () => handleManyAnswersSelect(title, i, active)
-              }
+            <div className="surveyName">{questions[number].title}</div>
+            <Stack
+              spacing={1}
+              direction="column"
+              sx={{ display: 'flex', alignItems: 'flex-start' }}
             >
-              {title}
-            </Button>
-          ))}
-        </Stack>
-        <div className="btnWrap">
-          <PrevBtn
-            answersActiveFilter={answersActiveFilter}
-            questions={questions}
-            handlePrevBtn={handlePrevBtn}
-          />
-          <NextBtn
-            answersActiveFilter={answersActiveFilter}
-            handleNextBtn={handleNextBtn}
-          />
+              {answers.map(({ title, active }, i) => (
+                <Button
+                  sx={{
+                    fontSize: '15px',
+                    fontWeight: '600',
+                    borderRadius: '1px',
+                    width: '300px',
+                  }}
+                  variant={active ? 'contained' : 'outlined'}
+                  key={title}
+                  onClick={
+                    questions[number].mode === 0
+                      ? () => handleAnswersSelect(title, i, active)
+                      : () => handleManyAnswersSelect(title, i, active)
+                  }
+                >
+                  {title}
+                </Button>
+              ))}
+            </Stack>
+            <div className="btnWrap">
+              <PrevBtn
+                answersActiveFilter={answersActiveFilter}
+                questions={questions}
+                handlePrevBtn={handlePrevBtn}
+              />
+              <NextBtn
+                answersActiveFilter={answersActiveFilter}
+                handleNextBtn={handleNextBtn}
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

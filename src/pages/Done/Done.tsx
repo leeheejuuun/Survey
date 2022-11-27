@@ -31,6 +31,8 @@ export default function Done() {
     setPrintData([]);
   };
 
+  if (!state) navigate('/');
+
   return (
     <div className="doneBox">
       <span className="doneText">설문이 종료되었습니다.</span>
