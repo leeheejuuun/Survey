@@ -48,7 +48,7 @@ export default function Survey() {
         setQuestions(map);
       })();
     } catch (err) {
-      console.log('error', err);
+      navigate('/');
     }
   }, []);
 
@@ -64,7 +64,7 @@ export default function Survey() {
         setAnswers(map.map((title: any) => ({ title, ...active })));
       })();
     } catch (err) {
-      console.log('error', err);
+      navigate('/');
     }
   }, [questions, number]);
 
