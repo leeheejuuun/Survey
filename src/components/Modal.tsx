@@ -67,7 +67,7 @@ export default function CustomizedDialogs({
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        설문결과 보기
+        선택한 답안보기
       </Button>
       <BootstrapDialog
         onClose={handleClose}
@@ -84,9 +84,11 @@ export default function CustomizedDialogs({
           </span>
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          {printData.map((x) => (
+          {printData.map((x, i) => (
             <Typography gutterBottom>
-              <span className="printQuestion"> {x.question} :</span>{' '}
+              <span className="printQuestion">
+                {i + 1}. {x.question} :
+              </span>{' '}
               <span className="printAnswer">{x.answer}</span>
             </Typography>
           ))}

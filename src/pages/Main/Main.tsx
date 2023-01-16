@@ -64,7 +64,10 @@ export default function Main() {
     copySurveys[idx].active = !active;
     setSurveys(copySurveys);
 
-    console.log(surveys, 'surveys');
+    console.log(
+      surveys.filter(({ active }, i) => !!active),
+      'surveys'
+    );
   };
 
   const navigate = useNavigate();
@@ -92,7 +95,14 @@ export default function Main() {
           onChange={handleNameChange}
         />
       </Box>
-      <span className="subTitle">원하는 설문을 선택해주세요.</span>
+      <span>
+        {startData.title.length > 0 ? (
+          <span></span>
+        ) : (
+          <span className="subTitle">설문을 선택해 주세요.</span>
+        )}
+      </span>
+
       <Stack spacing={1} direction="column" sx={{ marginTop: '10px' }}>
         {surveys.map(({ title, active }, idx) => (
           <Button

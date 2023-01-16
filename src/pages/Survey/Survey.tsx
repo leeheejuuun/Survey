@@ -179,9 +179,8 @@ export default function Survey() {
             <span className="surveyTitle">{state.title}</span>
             <div className="progressBarBox">
               <ProgressBar isProgressBar={isProgressBar} />
-              <span className="ProgressBarCount">
-                {number + 1}/{questions.length}
-              </span>
+              <span className="surveyCurrentNumber">{number + 1}</span>
+              <span className="surveyTotalNumber">/{questions.length}</span>
             </div>
 
             <div className="surveyName">{questions[number].title}</div>
