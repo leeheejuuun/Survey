@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
 
 const ariaLabel = { 'aria-label': 'description' };
 
@@ -79,22 +80,31 @@ export default function Main() {
   return (
     <div className="Wrap">
       <header className="title">설문 조사</header>
-      <Box
+      <Stack
         component="form"
         sx={{
-          '& > :not(style)': { m: 1 },
-          marginTop: '10px',
+          width: '17ch',
         }}
+        spacing={2}
         noValidate
         autoComplete="off"
       >
-        <Input
+        <TextField
+          id="standard-basic"
+          variant="standard"
           placeholder="이름을 입력해 주세요."
-          inputProps={ariaLabel}
           value={startData.name}
           onChange={handleNameChange}
+          sx={{
+            '& .MuiInputBase-root': {
+              '& input': {
+                textAlign: 'center',
+              },
+            },
+            marginTop: '20px',
+          }}
         />
-      </Box>
+      </Stack>
       <span>
         {startData.title.length > 0 ? (
           <span></span>
