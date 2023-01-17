@@ -10,7 +10,7 @@ import Done from './pages/Done/Done';
 function App() {
   const [printData, setPrintData] = useState<IPrintData[]>([]);
   return (
-    <DataContext.Provider value={{ printData, setPrintData }}>
+    <DataContext.Provider value={{ printData, sestPrintData }}>
       <div className="App">
         <BrowserRouter>
           <Routes>

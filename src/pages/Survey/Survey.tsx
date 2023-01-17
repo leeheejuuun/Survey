@@ -46,6 +46,9 @@ export default function Survey() {
         const data = res.data;
         const map = state.questions.map((x: number) => data.questions[x]);
         setQuestions(map);
+        if (number === 0) {
+          setPrintData([]);
+        }
       })();
     } catch (err) {
       navigate('/');
@@ -170,6 +173,9 @@ export default function Survey() {
       setPrintData([]);
     }
   };
+
+  console.log(number, 'number');
+  console.log(printData, 'printData');
 
   return (
     <>

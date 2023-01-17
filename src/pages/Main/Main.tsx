@@ -105,15 +105,15 @@ export default function Main() {
           }}
         />
       </Stack>
-      <span>
+      {/* <span>
         {startData.title.length > 0 ? (
           <span></span>
         ) : (
           <span className="subTitle">설문을 선택해 주세요.</span>
         )}
-      </span>
-
-      <Stack spacing={1} direction="column" sx={{ marginTop: '10px' }}>
+      </span> */}
+      <span className="subTitle">진행하고자 하는 설문을 선택해 주세요.</span>
+      <Stack spacing={1} direction="column" sx={{ marginTop: '20px' }}>
         {surveys.map(({ title, active }, idx) => (
           <Button
             sx={{ borderRadius: '1px' }}
