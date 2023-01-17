@@ -95,9 +95,9 @@ export default function Survey() {
     setAnswers(aaa);
   };
 
-  useEffect(() => {
-    console.log(finalDataAnswer, 'final');
-  }, [finalDataAnswer]);
+  // useEffect(() => {
+  //   console.log(finalDataAnswer, 'final');
+  // }, [finalDataAnswer]);
 
   if (!state) navigate('/');
 
@@ -173,9 +173,6 @@ export default function Survey() {
       setPrintData([]);
     }
   };
-
-  console.log(number, 'number');
-  console.log(printData, 'printData');
 
   return (
     <>

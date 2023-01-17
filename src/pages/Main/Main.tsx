@@ -64,11 +64,6 @@ export default function Main() {
     });
     copySurveys[idx].active = !active;
     setSurveys(copySurveys);
-
-    console.log(
-      surveys.filter(({ active }, i) => !!active),
-      'surveys'
-    );
   };
 
   const navigate = useNavigate();

@@ -11,7 +11,7 @@ export default function Done() {
   const { printData, setPrintData } = useContext(DataContext);
   const navigate = useNavigate();
   const { state } = useLocation();
-  console.log(state, 'state');
+  // console.log(state, 'state');
 
   const handlePrintData = () => {
     const map = printData.map((a) => Object.values(a));
