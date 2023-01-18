@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import { DataContext } from '../context/CreateContext';
+import { purple } from '@mui/material/colors';
 import './Modal.scss';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -66,7 +67,20 @@ export default function CustomizedDialogs({
   console.log(printData, 'printData');
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button
+        sx={{
+          backgroundColor: 'white',
+          '&:hover': {
+            backgroundColor: purple[500],
+            color: 'white',
+            border: 'none',
+          },
+          color: 'black',
+          border: `1px solid ${purple[300]}`,
+        }}
+        variant="outlined"
+        onClick={handleClickOpen}
+      >
         선택한 답안보기
       </Button>
       <BootstrapDialog

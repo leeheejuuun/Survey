@@ -11,14 +11,16 @@ function App() {
   const [printData, setPrintData] = useState<IPrintData[]>([]);
   return (
     <DataContext.Provider value={{ printData, setPrintData }}>
-      <div className="App">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Main />}></Route>
-            <Route path="/survey" element={<Survey />}></Route>
-            <Route path="/done" element={<Done />}></Route>
-          </Routes>
-        </BrowserRouter>
+      <div className="box">
+        <div className="App">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Main />}></Route>
+              <Route path="/survey" element={<Survey />}></Route>
+              <Route path="/done" element={<Done />}></Route>
+            </Routes>
+          </BrowserRouter>
+        </div>
       </div>
     </DataContext.Provider>
   );

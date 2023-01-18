@@ -8,6 +8,7 @@ import PrevBtn from '../../components/PrevBtn';
 import '../Survey/Survey.scss';
 import ProgressBar from '../../components/ProgressBar';
 import { DataContext } from '../../context/CreateContext';
+import { purple } from '@mui/material/colors';
 
 export default function Survey() {
   const { printData, setPrintData } = useContext(DataContext);
@@ -194,13 +195,28 @@ export default function Survey() {
             >
               {answers.map(({ title, active }, i) => (
                 <Button
+                  // sx={{
+                  //   fontSize: '15px',
+                  //   fontWeight: '600',
+                  //   borderRadius: '1px',
+                  //   width: '300px',
+                  // }}
+                  // variant={active ? 'contained' : 'outlined'}
                   sx={{
+                    backgroundColor: active ? purple[500] : 'white',
                     fontSize: '15px',
                     fontWeight: '600',
-                    borderRadius: '1px',
+                    borderRadius: '3px',
                     width: '300px',
+                    color: active ? 'white' : 'black',
+                    border: active ? 'none' : `1px solid ${purple[300]}`,
+                    '&:hover': {
+                      backgroundColor: purple[500],
+                      color: 'white',
+                      border: 'none',
+                    },
                   }}
-                  variant={active ? 'contained' : 'outlined'}
+                  variant="outlined"
                   key={title}
                   onClick={
                     questions[number].mode === 0

@@ -3,10 +3,11 @@ import './Main.scss';
 import Box from '@mui/material/Box';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import Button, { ButtonProps } from '@mui/material/Button';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
+import { purple } from '@mui/material/colors';
 
 const ariaLabel = { 'aria-label': 'description' };
 
@@ -72,6 +73,16 @@ export default function Main() {
     navigate('/survey', { state: startData });
   };
 
+  // 컬러 버튼 띰 사용
+
+  // const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
+  //   color: theme.palette.getContrastText(purple[500]),
+  //   backgroundColor: 'white',
+  //   '&:hover': {
+  //     backgroundColor: purple[700],
+  //   },
+  // }));
+
   return (
     <div className="Wrap">
       <header className="title">설문 조사</header>
@@ -94,25 +105,34 @@ export default function Main() {
             '& .MuiInputBase-root': {
               '& input': {
                 textAlign: 'center',
+                borderBottomColor: 'none',
+                fontSize: '17px',
               },
+            },
+            '& .MuiInput-underline:before': { borderBottomColor: purple[300] },
+            '& .MuiInput-underline:after': {
+              borderBottomColor: purple[600],
             },
             marginTop: '20px',
           }}
         />
       </Stack>
-      {/* <span>
-        {startData.title.length > 0 ? (
-          <span></span>
-        ) : (
-          <span className="subTitle">설문을 선택해 주세요.</span>
-        )}
-      </span> */}
       <span className="subTitle">진행하고자 하는 설문을 선택해 주세요.</span>
       <Stack spacing={1} direction="column" sx={{ marginTop: '20px' }}>
         {surveys.map(({ title, active }, idx) => (
           <Button
-            sx={{ borderRadius: '1px' }}
-            variant={active ? 'contained' : 'outlined'}
+            sx={{
+              backgroundColor: active ? purple[500] : 'white',
+              '&:hover': {
+                backgroundColor: purple[500],
+                color: 'white',
+                border: 'none',
+              },
+              color: active ? 'white' : 'black',
+              border: active ? 'none' : `1px solid ${purple[300]}`,
+              borderRadius: '3px',
+            }}
+            variant="outlined"
             onClick={() => handleServeySelect(title, idx, active)}
           >
             {title}
@@ -153,8 +173,25 @@ export default function Main() {
         </div>
       </div>
       <Button
-        variant={startData.name && startData.title ? 'contained' : 'outlined'}
+        // variant={startData.name && startData.title ? 'contained' : 'outlined'}
+        variant="outlined"
         disabled={startData.name.length === 0 || startData.title.length === 0}
+        sx={{
+          backgroundColor:
+            startData.name.length === 0 || startData.title.length === 0
+              ? 'white'
+              : 'white',
+          color:
+            startData.name.length === 0 || startData.title.length === 0
+              ? 'black'
+              : 'black',
+          border: `1px solid${purple[500]}`,
+          '&:hover': {
+            backgroundColor: purple[500],
+            color: 'white',
+            border: 'none',
+          },
+        }}
         onClick={handleNext}
       >
         설문 시작

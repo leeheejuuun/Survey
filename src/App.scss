@@ -1,6 +1,12 @@
-.App {
-  width: 360px;
-  height: 500px;
-  border: 1px solid black;
-  margin: 0 auto;
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  .App {
+    width: 360px;
+    height: 500px;
+    border: 1px solid black;
+    // margin: 0 auto;
+  }
 }

@@ -5,6 +5,7 @@ import NextBtn from '../../components/NextBtn';
 import './Done.scss';
 import Modal from '../../components/Modal';
 import HomeIcon from '@mui/icons-material/Home';
+import { purple } from '@mui/material/colors';
 
 export default function Done() {
   const [open, setOpen] = useState(false);
@@ -45,7 +46,11 @@ export default function Done() {
         />
       </div>
       <div className="homeIconBox">
-        <HomeIcon fontSize="large" onClick={handleGoHome} />
+        <HomeIcon
+          fontSize="large"
+          onClick={handleGoHome}
+          sx={{ color: purple[500] }}
+        />
       </div>
     </div>
   );
