@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { DataContext } from '../../context/CreateContext';
-import NextBtn from '../../components/NextBtn';
 import './Done.scss';
 import Modal from '../../components/Modal';
 import HomeIcon from '@mui/icons-material/Home';
@@ -14,10 +13,10 @@ export default function Done() {
   const { state } = useLocation();
   // console.log(state, 'state');
 
-  const handlePrintData = () => {
-    const map = printData.map((a) => Object.values(a));
-    const entries = Object.fromEntries(map);
-  };
+  // const handlePrintData = () => {
+  //   const map = printData.map((a) => Object.values(a));
+  //   const entries = Object.fromEntries(map);
+  // };
 
   const handleClickOpen = () => {
     setOpen(true);

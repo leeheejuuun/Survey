@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Main.scss';
-import Box from '@mui/material/Box';
-import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
-import Button, { ButtonProps } from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import { purple } from '@mui/material/colors';
-
-const ariaLabel = { 'aria-label': 'description' };
 
 export default function Main() {
   const [surveys, setSurveys] = useState<
