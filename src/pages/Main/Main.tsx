@@ -31,7 +31,7 @@ export default function Main() {
   useEffect(() => {
     try {
       (async () => {
-        const res = await axios.get('http://localhost:3000/data/surveys.json');
+        const res = await axios.get('./data/surveys.json');
         const data = res.data;
         const active = { active: false };
         setSurveys(data.surveys.map((a: any) => ({ ...a, ...active })));

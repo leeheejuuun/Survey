@@ -41,9 +41,7 @@ export default function Survey() {
   useEffect(() => {
     try {
       (async () => {
-        const res = await axios.get(
-          'http://localhost:3000/data/questions.json'
-        );
+        const res = await axios.get('./data/questions.json');
         const data = res.data;
         const map = state.questions.map((x: number) => data.questions[x]);
         setQuestions(map);
@@ -59,7 +57,7 @@ export default function Survey() {
   useEffect(() => {
     try {
       (async () => {
-        const res = await axios.get('http://localhost:3000/data/answers.json');
+        const res = await axios.get('./data/answers.json');
         const data = res.data;
         const map = questions[number].answers.map(
           (x: number) => data.answers[x]
