@@ -85,7 +85,7 @@ export default function Main() {
       <Stack
         component="form"
         sx={{
-          width: '17ch',
+          width: '200px',
         }}
         spacing={2}
         noValidate
@@ -113,7 +113,7 @@ export default function Main() {
           }}
         />
       </Stack>
-      <span className="subTitle">진행하고자 하는 설문을 선택해 주세요.</span>
+      {/* <span className="subTitle">진행하고자 하는 설문을 선택해 주세요.</span> */}
       <Stack spacing={2} direction="column" sx={{ marginTop: '30px' }}>
         {surveys.map(({ title, active }, idx) => (
           <Button
@@ -127,6 +127,8 @@ export default function Main() {
               color: active ? 'white' : 'black',
               border: active ? 'none' : `1px solid ${purple[300]}`,
               borderRadius: '3px',
+              width: '200px',
+              fontWeight: '600',
             }}
             variant="outlined"
             onClick={() => handleServeySelect(title, idx, active)}
@@ -188,6 +190,7 @@ export default function Main() {
             border: 'none',
           },
           marginTop: '30px',
+          width: '200px',
         }}
         onClick={handleNext}
       >
