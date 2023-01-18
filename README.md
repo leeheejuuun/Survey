@@ -8,7 +8,7 @@
 
 - 개발 기간 : 2022.11.16 ~ 2022.11.22
 
-- 링크 : https://63c7f2f82372d20009905a0a--venerable-licorice-6e55bf.netlify.app/
+- 링크 : https://venerable-licorice-6e55bf.netlify.app
 
 ---
 
