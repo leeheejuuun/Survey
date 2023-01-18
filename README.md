@@ -34,8 +34,8 @@
 
   3. 방대한 컴포넌트를 제공합니다.
 
-<img width="155" alt="스크린샷 2023-01-18 오후 10 48 33" src="https://user-images.githubusercontent.com/94230809/213188490-d15c79fc-a648-44ff-b61a-619dd30fade1.png">
-<img width="145" alt="스크린샷 2023-01-18 오후 10 49 33" src="https://user-images.githubusercontent.com/94230809/213188571-699a823e-1561-400d-9e7d-e0ce2e61a2fd.png">
+<img width="200" alt="스크린샷 2023-01-18 오후 10 48 33" src="https://user-images.githubusercontent.com/94230809/213188490-d15c79fc-a648-44ff-b61a-619dd30fade1.png">
+<img width="200" alt="스크린샷 2023-01-18 오후 10 49 33" src="https://user-images.githubusercontent.com/94230809/213188571-699a823e-1561-400d-9e7d-e0ce2e61a2fd.png">
 
 ### 2. useContext를 사용한 전역 데이터 관리
 
