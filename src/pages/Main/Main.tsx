@@ -114,7 +114,7 @@ export default function Main() {
         />
       </Stack>
       <span className="subTitle">진행하고자 하는 설문을 선택해 주세요.</span>
-      <Stack spacing={1} direction="column" sx={{ marginTop: '20px' }}>
+      <Stack spacing={2} direction="column" sx={{ marginTop: '30px' }}>
         {surveys.map(({ title, active }, idx) => (
           <Button
             sx={{
@@ -187,6 +187,7 @@ export default function Main() {
             color: 'white',
             border: 'none',
           },
+          marginTop: '30px',
         }}
         onClick={handleNext}
       >

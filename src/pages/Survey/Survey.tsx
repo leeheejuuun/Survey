@@ -9,6 +9,7 @@ import '../Survey/Survey.scss';
 import ProgressBar from '../../components/ProgressBar';
 import { DataContext } from '../../context/CreateContext';
 import { purple } from '@mui/material/colors';
+import HomeIcon from '@mui/icons-material/Home';
 
 export default function Survey() {
   const { printData, setPrintData } = useContext(DataContext);
@@ -173,11 +174,22 @@ export default function Survey() {
     }
   };
 
+  const handleGoHome = () => {
+    alert('메인으로 돌아가시겠습니까?');
+    navigate('/');
+    setPrintData([]);
+  };
+
   return (
     <>
       {state && (
         <div>
           <div className="surveyWrap">
+            <HomeIcon
+              fontSize="large"
+              onClick={handleGoHome}
+              sx={{ color: purple[500], marginTop: '30px' }}
+            />
             <span className="surveyTitle">{state.title}</span>
             <div className="progressBarBox">
               <ProgressBar isProgressBar={isProgressBar} />
@@ -193,13 +205,6 @@ export default function Survey() {
             >
               {answers.map(({ title, active }, i) => (
                 <Button
-                  // sx={{
-                  //   fontSize: '15px',
-                  //   fontWeight: '600',
-                  //   borderRadius: '1px',
-                  //   width: '300px',
-                  // }}
-                  // variant={active ? 'contained' : 'outlined'}
                   sx={{
                     backgroundColor: active ? purple[500] : 'white',
                     fontSize: '15px',

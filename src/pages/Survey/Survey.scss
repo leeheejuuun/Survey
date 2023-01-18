@@ -12,7 +12,7 @@
   .progressBarBox {
     display: flex;
     align-items: center;
-    margin: 30px 0 20px 0;
+    margin: 20px 0 20px 0;
     .surveyCurrentNumber {
       margin-left: 30px;
       font-weight: 700;
@@ -29,7 +29,7 @@
     font-weight: 500;
   }
   .surveyName {
-    margin-bottom: 15px;
+    margin: 0 0 20px 0;
     font-size: 17px;
     font-weight: 600;
   }
@@ -39,7 +39,7 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    bottom: 120px;
+    bottom: 50px;
     margin: 0 25px 0 25px;
   }
 }
