@@ -18,3 +18,7 @@ const finalData = {
 };
 
 export const DataContext = createContext<PrintDataState>(finalData);
+
+
+
+

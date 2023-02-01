@@ -15,7 +15,7 @@
 ## 사용 기술 및 라이브러리
 
 - TypeScript
-- React, Sass
+- React, Scss
 - useContext
 - axios
 - MUI
