@@ -129,18 +129,18 @@ export default function Survey() {
       });
     }
 
-    const newArr = [...isProgressBar];
-    if ((number + 2) / questions.length >= 0.76) {
-      newArr.fill(true);
-      setIsProgressBar(newArr);
-    } else if ((number + 2) / questions.length >= 0.51) {
-      newArr[0] = true;
-      newArr[1] = true;
-      setIsProgressBar(newArr);
-    } else if ((number + 2) / questions.length >= 0.26) {
-      newArr[0] = true;
-      setIsProgressBar(newArr);
-    }
+    // const newArr = [...isProgressBar];
+    // if ((number + 2) / questions.length >= 0.76) {
+    //   newArr.fill(true);
+    //   setIsProgressBar(newArr);
+    // } else if ((number + 2) / questions.length >= 0.51) {
+    //   newArr[0] = true;
+    //   newArr[1] = true;
+    //   setIsProgressBar(newArr);
+    // } else if ((number + 2) / questions.length >= 0.26) {
+    //   newArr[0] = true;
+    //   setIsProgressBar(newArr);
+    // }
 
     setPrintData([
       ...printData,
@@ -153,19 +153,20 @@ export default function Survey() {
   const handlePrevBtn = () => {
     setNumber((prev) => prev - 1);
     setPrintData(printData.slice(0, -1));
+    console.log(isProgressBar);
 
-    const newArr = [...isProgressBar];
-    if (number / questions.length <= 0.25) {
-      newArr[0] = false;
-      setIsProgressBar(newArr);
-    } else if (number / questions.length <= 0.5) {
-      newArr[1] = false;
-      if (questions.length === 3) newArr[0] = false;
-      setIsProgressBar(newArr);
-    } else if (number / questions.length <= 0.75) {
-      newArr[2] = false;
-      setIsProgressBar(newArr);
-    }
+    // const newArr = [...isProgressBar];
+    // if (number / questions.length <= 0.25) {
+    //   newArr[0] = false;
+    //   setIsProgressBar(newArr);
+    // } else if (number / questions.length <= 0.5) {
+    //   newArr[1] = false;
+    //   if (questions.length === 3) newArr[0] = false;
+    //   setIsProgressBar(newArr);
+    // } else if (number / questions.length <= 0.75) {
+    //   newArr[2] = false;
+    //   setIsProgressBar(newArr);
+    // }
 
     if (!number) {
       alert('설문을 다시 선택하시겠습니까?.');
@@ -192,7 +193,11 @@ export default function Survey() {
             />
             <span className="surveyTitle">{state.title}</span>
             <div className="progressBarBox">
-              <ProgressBar isProgressBar={isProgressBar} />
+              <ProgressBar
+                isProgressBar={isProgressBar}
+                number={number}
+                questions={questions}
+              />
               <span className="surveyCurrentNumber">{number + 1}</span>
               <span className="surveyTotalNumber">/{questions.length}</span>
             </div>
